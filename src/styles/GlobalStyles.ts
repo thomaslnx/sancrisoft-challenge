@@ -120,6 +120,8 @@ export const Label = styled.label`
 export const ErrorMessage = styled.span`
   color: #ff0000;
   font-size: 14px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
   margin-top: 6px;
   display: block;
   display: flex;
