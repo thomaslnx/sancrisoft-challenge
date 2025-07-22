@@ -143,6 +143,10 @@ export const ErrorMessage = styled.span`
 
 export const FormGroup = styled.div`
   margin-bottom: 24px;
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 export const Grid = styled.div<{ $columns?: number }>`
