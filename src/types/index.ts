@@ -109,3 +109,18 @@ export interface State {
   name: string;
   abbreviation: string;
 }
+
+export interface Country {
+  name: string;
+  phone_code: string;
+  flag_url: string;
+}
+
+export interface PhoneFieldProps {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+  error?: string;
+  required?: boolean;
+}

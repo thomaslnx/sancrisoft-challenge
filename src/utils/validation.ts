@@ -79,7 +79,7 @@ export class ValidationRule {
   }
 
   static #phone(field: string, value: string): ValidationError | null {
-    const phoneRegex = /^\(\d{3}\) \d{3}-\d{4}$/;
+    const phoneRegex = /^(\+\d{1,3})\s(\(\d{3}\)\s)\d{3}\-\d{4}$/;
 
     if (!phoneRegex.test(value)) {
       return {

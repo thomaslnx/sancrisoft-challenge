@@ -17,8 +17,12 @@ const StyledFormGroup = styled(FormGroup)`
   position: relative;
   margin-bottom: 16px;
 
-  #name {
+  &#name {
     margin-bottom: 16px;
+  }
+
+  &#firstName {
+    margin-bottom: 0;
   }
 `;
 

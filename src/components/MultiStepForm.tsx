@@ -6,6 +6,7 @@ import { useForm } from "@/hooks/useForm";
 import { StepIndicator } from "@/components/ui/StepIndicator";
 import { ProgressIndicator } from "@/components/ui/ProgressIndicator";
 import { Step1 } from "@/components/steps/Step1";
+import { Step2 } from "@/components/steps/Step2";
 
 import { FormContext } from "@/contexts/FormContext";
 import {
@@ -50,8 +51,8 @@ const MultiStepForm: FC = () => {
     switch (currentStep) {
       case 1:
         return <Step1 />;
-      // case 2:
-      //   return <Step2 />;
+      case 2:
+        return <Step2 />;
       // case 3:
       //   return <Step3 />;
       // default:

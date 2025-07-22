@@ -115,6 +115,19 @@ export const Label = styled.label`
   &[for="zip"] {
     display: none;
   }
+
+  &[for="email"] {
+    margin-bottom: 16px;
+  }
+
+  &[for="phone"] {
+    margin-bottom: 32px;
+  }
+
+  &[for="firstName"],
+  &[for="lastName"] {
+    margin-bottom: 0;
+  }
 `;
 
 export const ErrorMessage = styled.span`
@@ -137,6 +150,12 @@ export const Grid = styled.div<{ $columns?: number }>`
   height: 34px;
   grid-template-columns: repeat(${({ $columns = 1 }) => $columns}, 1fr);
   gap: 16px;
+
+  &.name-phone {
+    display: flex;
+    margin-bottom: 0;
+    height: 34px;
+  }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr 1fr;
