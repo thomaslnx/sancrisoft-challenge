@@ -29,7 +29,7 @@ export interface ValidationError {
   message: string;
 }
 
-type Status = "idle" | "success" | "error" | "ok";
+export type Status = "idle" | "success" | "error" | "ok";
 
 export interface FormState {
   currentStep: number;
