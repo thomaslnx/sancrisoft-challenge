@@ -215,6 +215,10 @@ export const FormContentContainer = styled.div`
   display: flex;
   padding: 44px 114px 0;
 
+  @media (min-width: 430px) and (max-width: 480px) {
+    height: 100vh;
+  }
+
   @media (max-width: 768px) {
     padding: 44px 21px 0;
   }
@@ -223,6 +227,27 @@ export const FormContentContainer = styled.div`
 export const ContentAreaContainer = styled.div`
   display: flex;
   padding: 10px 114px 0;
+  height: 100%;
+
+  @media (min-width: 430px) and (max-width: 480px) {
+    display: flex;
+    height: 100vh;
+    max-width: 350px;
+    padding: 10px 21px 0;
+
+    #zip-error,
+    #name-error,
+    #type-error,
+    #line1-error,
+    #city-error,
+    #state-error {
+      font-size: 10px;
+
+      svg {
+        width: 16px;
+      }
+    }
+  }
 
   @media (max-width: 768px) {
     padding: 10px 21px 0;
@@ -249,14 +274,58 @@ export const ButtonContainer = styled.div`
 
 export const PhoneStepContainer = styled.section`
   display: flex;
+  height: 100%;
   flex-direction: column;
   gap: 32px;
+
+  @media (min-width: 430px) and (max-width: 480px) {
+    display: flex;
+    height: 100vh;
+    max-width: 370px;
+
+    #firstName-error,
+    #lastName-error,
+    #email-error {
+      font-size: 11px;
+
+      svg {
+        width: 16px;
+      }
+    }
+
+    #phone {
+      max-width: 330px;
+    }
+  }
 `;
 
 export const PhoneContainer = styled.div`
   display: flex;
   position: relative;
   gap: 0;
+
+  @media (min-width: 430px) and (max-width: 480px) {
+    display: flex;
+    max-width: 100%;
+
+    #firstName-error,
+    #lastName-error,
+    #email-error {
+      font-size: 11px;
+
+      svg {
+        width: 16px;
+      }
+    }
+
+    select {
+      width: 50px;
+    }
+
+    input {
+      width: 330px;
+    }
+  }
 `;
 
 export const PhoneInput = styled.input<{ $hasError?: boolean }>`
@@ -277,6 +346,12 @@ export const PhoneInput = styled.input<{ $hasError?: boolean }>`
 
   &::placeholder {
     color: #9ca3af;
+  }
+
+  @media (min-width: 320px) and (max-width: 430px) {
+    &#phone {
+      width: 100%;
+    }
   }
 `;
 
@@ -304,6 +379,10 @@ export const CountrySelect = styled.select<{
     box-shadow: 0 0 0 3px rgba(93, 95, 239, 0.1);
     outline: none;
   }
+
+  @media (max-width: 430px) {
+    width: 200px;
+  }
 `;
 
 export const SelectDownIcon = styled.div<{ $hasError: boolean }>`
@@ -319,6 +398,10 @@ export const ReviewSubmitStepContainer = styled.section`
   position: relative;
   flex-direction: column;
   gap: 40px;
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 export const ReviewSection = styled.div`
@@ -424,4 +507,12 @@ export const SubmissionResult = styled.div<{
     `;
     }
   }}
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    max-width: 100%;
+  }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    max-width: 100%;
+  }
 `;

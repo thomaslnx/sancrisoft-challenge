@@ -13,6 +13,7 @@ import {
 } from "@/components/styles";
 import { Country, PhoneFieldProps } from "@/types";
 import { formatPhoneNumber } from "@/utils/phone";
+import { GoAlertFill } from "react-icons/go";
 
 export const PhoneField: FC<PhoneFieldProps> = ({
   id,
@@ -83,6 +84,17 @@ export const PhoneField: FC<PhoneFieldProps> = ({
           autoComplete="tel"
         />
       </PhoneContainer>
+      {error && (
+        <ErrorMessage id={`${id}-error`} role="alert" aria-live="polite">
+          <GoAlertFill
+            size={20}
+            style={{ marginRight: 4 }}
+            color="#ffffff"
+            fill="red"
+          />
+          {error}
+        </ErrorMessage>
+      )}
     </FormGroup>
   );
 };
