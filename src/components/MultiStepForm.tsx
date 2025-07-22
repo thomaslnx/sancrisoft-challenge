@@ -7,6 +7,8 @@ import { StepIndicator } from "@/components/ui/StepIndicator";
 import { ProgressIndicator } from "@/components/ui/ProgressIndicator";
 import { Step1 } from "@/components/steps/Step1";
 import { Step2 } from "@/components/steps/Step2";
+import { Step3 } from "@/components/steps/Step3";
+import { Step3Review } from "@/components/steps/Step3Review";
 
 import { FormContext } from "@/contexts/FormContext";
 import {
@@ -23,7 +25,7 @@ const MultiStepForm: FC = () => {
   const { currentStep, submissionResult } = state;
 
   const getProgressStatus = () => {
-    if (submissionResult.status === "success") return "success";
+    if (submissionResult.status === "ok") return "success";
     if (submissionResult.status === "error") return "error";
     if (hasUserData()) return "in-progress";
 
@@ -53,10 +55,10 @@ const MultiStepForm: FC = () => {
         return <Step1 />;
       case 2:
         return <Step2 />;
-      // case 3:
-      //   return <Step3 />;
-      // default:
-      //   return <Step1 />;
+      case 3:
+        return submissionResult.status === "idle" ? <Step3 /> : <Step3Review />;
+      default:
+        return <Step1 />;
     }
   };
 

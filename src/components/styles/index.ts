@@ -86,6 +86,7 @@ export const StepList = styled.ol`
 export const StepItem = styled.li<{
   $isActive: boolean;
   $isCompleted: boolean;
+  $submissionOk: string;
   $canNavigate: boolean;
 }>`
   display: flex;
@@ -115,6 +116,7 @@ export const StepNumberContainer = styled.div`
 export const StepNumber = styled.div<{
   $isActive: boolean;
   $isCompleted: boolean;
+  $submissionOk: string;
 }>`
   width: 26px;
   height: 26px;
@@ -131,8 +133,8 @@ export const StepNumber = styled.div<{
     margin-right: 0;
   }
 
-  ${({ $isCompleted, $isActive }) => {
-    if ($isCompleted) {
+  ${({ $isCompleted, $isActive, $submissionOk }) => {
+    if ($isCompleted || $submissionOk === "ok") {
       return `
         background-color: #4ade80;
         color: #ffffff;
@@ -193,7 +195,7 @@ export const StatusBadge = styled.span<{
         `;
       case "success":
         return `
-          background-color: #d1fae5;
+          background-color: rgba(128 128 128 / 0.08);
           color: #008000;
         `;
       case "error":
@@ -310,4 +312,116 @@ export const SelectDownIcon = styled.div<{ $hasError: boolean }>`
   transform: ${({ $hasError }) =>
     $hasError ? "translate(600%, -41%)" : "translate(600%, -44%)"};
   pointer-events: none;
+`;
+
+export const ReviewSubmitStepContainer = styled.section`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 40px;
+`;
+
+export const ReviewSection = styled.div`
+  padding-bottom: 32px;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+`;
+
+export const SectionHeader = styled.div`
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+`;
+
+export const SectionTitle = styled.h3`
+  font-size: 18px;
+  font-weight: 500;
+  width: 176px;
+  line-height: 24px;
+  color: #111827;
+  margin: 0;
+`;
+
+export const EditButton = styled.button`
+  background: none;
+  border: none;
+  color: #4a3aff;
+  text-decoration-line: underline;
+  text-underline-offset: 3px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s ease;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+
+  &:hover {
+    color: #4c4fe8;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #5d5fef;
+    outline-offset: 2px;
+  }
+`;
+
+export const InfoRow = styled.div`
+  display: flex;
+  margin-bottom: 16px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+export const InfoLabel = styled.span`
+  font-size: 18px;
+  color: #6b7280;
+  width: 137px;
+  min-width: 80px;
+  margin-right: 16px;
+`;
+
+export const InfoValue = styled.span`
+  font-size: 14px;
+  color: #111827;
+  font-weight: 400;
+`;
+
+export const SubmissionResult = styled.div<{
+  $status: "success" | "error" | "ok";
+}>`
+  padding: 12px 16px;
+  width: 363px;
+  height: 64px;
+  border-radius: 8px;
+  margin-bottom: 0;
+  border: 1px solid;
+
+  ${({ $status }) => {
+    if ($status === "ok") {
+      return `
+        background-color: rgba(0, 128, 0, 0.08);
+        font-weight: 400;
+        font-size: 16px;
+        color: #008000;
+        border-color: #008000;
+      `;
+    } else {
+      return `
+      position: absolute;
+      bottom: -100px;
+      background-color: rgba(239, 68, 68, 0.08);
+      font-weight: 400;
+      font-size: 16px;
+      color: #ef4444;
+      border-color: #ef4444;
+    `;
+    }
+  }}
 `;
