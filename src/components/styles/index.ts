@@ -244,3 +244,70 @@ export const ButtonContainer = styled.div`
   height: 34px;
   justify-content: flex-end;
 `;
+
+export const PhoneStepContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+`;
+
+export const PhoneContainer = styled.div`
+  display: flex;
+  position: relative;
+  gap: 0;
+`;
+
+export const PhoneInput = styled.input<{ $hasError?: boolean }>`
+  flex: 1;
+  padding: 14px 16px;
+  height: 34px;
+  border: 1px solid ${({ $hasError }) => ($hasError ? "#ff0000" : "#E5E7EB")};
+  border-left: none;
+  border-radius: 0 6px 6px 0;
+  font-size: 16px;
+  background-color: white;
+
+  &:focus {
+    border-color: ${({ $hasError }) => ($hasError ? "#ff0000" : "#5D5FEF")};
+
+    outline: none;
+  }
+
+  &::placeholder {
+    color: #9ca3af;
+  }
+`;
+
+export const CountrySelect = styled.select<{
+  $countryFlag: string;
+}>`
+  padding: 1px 2px 1px 50px;
+  height: 34px;
+  border: 1px solid #e5e7eb;
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+  appearance: none;
+  background-image: ${({ $countryFlag }) => `url(${$countryFlag})`};
+  background-repeat: no-repeat;
+  background-position: left 15px center;
+  background-size: 26px;
+  position: relative;
+  background-color: white;
+  font-size: 16px;
+  cursor: pointer;
+  min-width: 121px;
+
+  &:focus {
+    border-color: #5d5fef;
+    box-shadow: 0 0 0 3px rgba(93, 95, 239, 0.1);
+    outline: none;
+  }
+`;
+
+export const SelectDownIcon = styled.div<{ $hasError: boolean }>`
+  position: absolute;
+  top: 50%;
+  transform: ${({ $hasError }) =>
+    $hasError ? "translate(600%, -41%)" : "translate(600%, -44%)"};
+  pointer-events: none;
+`;
