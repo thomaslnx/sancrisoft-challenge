@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, DM_Sans } from "next/font/google";
 
+import StyledComponentsRegistry from "@/lib/registry";
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -23,7 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${dmSans.variable}`}>{children}</body>
+      <body className={`${inter.variable} ${dmSans.variable}`}>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+      </body>
     </html>
   );
 }
