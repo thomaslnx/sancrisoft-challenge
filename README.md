@@ -87,8 +87,6 @@ npm install
 npm run dev
 ```
 
-Open [live demo](http://localhost:3000) in your browser.
-
 > **OBS:** What is better than having to build the project by yourself, only then seeing the magic happening? Is it have it ready for action, right? Relax guys, I've got your backs. Here is a link has a live version: [Live Demo](https://sancrisoft-challenge.vercel.app/), fully functional. Go ahead and test it.
 
 ### 4. **Run tests**
