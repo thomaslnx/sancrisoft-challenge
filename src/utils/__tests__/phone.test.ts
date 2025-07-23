@@ -1,4 +1,4 @@
-import { formatPhoneNumber, cleanPhoneNumber } from "../phone";
+import { formatPhoneNumber, cleanPhoneNumber } from "@/utils/phone";
 
 describe("formatPhoneNumber", () => {
   it("should format phone number correctly", () => {

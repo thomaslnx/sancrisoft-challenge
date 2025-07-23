@@ -1,5 +1,5 @@
-import { ApiPayloadBuilder, ApiService } from "../api";
-import { FormData } from "../../types";
+import { ApiPayloadBuilder, ApiService } from "@/utils/api";
+import { FormData } from "@/types";
 
 const mockFormData: FormData = {
   company: {
